@@ -34,6 +34,9 @@
         <i class="fab fa-facebook-f"></i>
       </button>
     </div>
+    <div>
+      <p>Already have a account? <router-link to="/login" class="login">Login</router-link></p>
+    </div>
   </form>
 </template>
 <script>
@@ -123,5 +126,16 @@ export default {
 .form-social-btn {
   width: 45%;
   color: #333;
+}
+p{
+  font-size: 25px;
+}
+.login {
+  font-size: 25px;
+  color: blue;
+}
+.login:hover{
+  color: blue;
+  border-bottom:1px solid blue ;
 }
 </style>

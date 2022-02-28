@@ -22,6 +22,9 @@
         <i class="fab fa-facebook"></i>
       </button>
     </div>
+    <div>
+      <p>Don't have a account? <router-link to="/login" class="signup">Signup</router-link></p>
+    </div>
   </form>
 </template>
 <script>
@@ -105,5 +108,16 @@ border: none !important;
 .form-social-btn {
   width: 45%;
   color: #333;
+} 
+p{
+  font-size: 25px;
+}
+.signup {
+  font-size: 25px;
+  color: blue;
+}
+.signup:hover{
+  color: blue;
+  border-bottom:1px solid blue ;
 }
 </style>
