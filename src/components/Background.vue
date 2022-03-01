@@ -20,6 +20,10 @@ export default {
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    z-index: -10;
+}
+svg{
+    z-index: -19;
 }
 
 .custom-shape-divider-bottom-1645791942 .shape-fill {

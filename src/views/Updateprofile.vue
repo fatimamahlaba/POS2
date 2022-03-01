@@ -1,8 +1,6 @@
 <template>
-  <section>
-    
-  <form @submit.prevent="register" class="form border">
-    <h2 class="form-heading">SignUp</h2>
+    <form @submit.prevent="updateprofile" class="form border">
+    <h2 class="form-heading">Update Profile</h2>
     <input
       class="form-input border-input"
       type="text"
@@ -27,12 +25,8 @@
       v-model="password"
       placeholder="Password"
     />
-    <button type="submit" class="form-btn border">Sign up</button>
-    <div>
-      <p>Already have a account? <router-link to="/login" class="login">Login</router-link></p>
-    </div>
+    <button type="submit" class="form-btn border">Update</button>
   </form>
-  </section>
 </template>
 <script>
 export default {
@@ -45,9 +39,9 @@ export default {
     };
   },
   methods: {
-    register(){
+    updateprofile(){
     fetch('https://pos-fj.herokuapp.com/users', {
-  method: 'POST',
+  method: 'PUT',
   body: JSON.stringify({
     name: this.name,
     email: this.email,
@@ -61,12 +55,12 @@ export default {
   .then((response) => response.json())
   .then((json) => {
    localStorage.setItem("jwt", json.jwt);
-   alert("User is signed up");
+   alert("User is updated");
    this.name='',
     this.email='',
     this.contact='',
     this.password='',
-   this.$router.push({ name: "Login"});
+   this.$router.push({ name: "Products"});
     })
     .catch((err) => {
       alert(err);
@@ -75,17 +69,14 @@ export default {
   },
 };
 </script>
-<style scoped>
-section{
-  background-color: white;
-  height: 100%;
-}
-
+<style>
 .border {
   border: none !important;
 }
 
-
+input{
+    background-color: #e8f0fe;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -107,9 +98,6 @@ section{
   border: none;
   outline: none;
   padding: 20px;
-}
-input{
-    background-color: #e8f0fe;
 }
 
 .form-btn {

@@ -9,16 +9,7 @@
       <li class="nav-item">
         <router-link to="/" class="nav-item"></router-link>
       </li> 
-      <div v-if="isLoggedIn">
-        <li class="nav-item">
-          <router-link to="/products" class="nav-item">Products</router-link>
-        </li>
-
-        <li class="nav-item">
-        <router-link to="/cart" class="nav-item" style="padding-left:800px">Cart</router-link>
-      </li>
-      </div>
-      <div v-else>
+      <div v-if="!isLoggedIn">
         <li class="nav-item">
           <router-link to="/signup" class="nav-item">Signup</router-link>
         </li>
@@ -26,10 +17,18 @@
           <router-link to="/login" class="nav-item">Login</router-link>
         </li>
       </div>
-
-       <li class="nav-item">
-        <router-link to="/contact" class="nav-item">Contact</router-link>
+      <div v-if="isLoggedIn">
+        <li class="nav-item">
+          <router-link to="/updateprofile" class="nav-item">Profile</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/products" class="nav-item">Products</router-link>
+        </li>
+        <li class="nav-item">
+        <router-link to="/cart" class="nav-item">Cart</router-link>
       </li>
+      </div>
+
       </ul>
         </div>
 </nav>

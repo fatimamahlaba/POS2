@@ -2,7 +2,7 @@
 <Navbar :isLoggedIn="isLoggedIn"/>
 <Background/>
    <router-view />
-   <Footer />
+   <!-- <Footer /> -->
 </template>
 
 <script>

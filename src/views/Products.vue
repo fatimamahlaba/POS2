@@ -1,4 +1,5 @@
 <template>
+<section>
 <div class="products" >
   <div style="text-align:center">
 
@@ -8,19 +9,92 @@
   Add a product
 </button>
   </div>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Phone</h5>
-        
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <!-- modal body -->
-      <div class="container d-flex justify-content-end mb-3 mt-5 pt-4">
-      <div class="d-flex w-25 ms-3">
+              <div
+                class="modal fade"
+                id="addProductModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Add product
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="mb-3">
+                        <label for="addTitle" class="form-label">Title</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="addTitle"
+                          id="addTitle"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Category</label>
+                        <select
+                          class="form-select"
+                          name="addCategory"
+                          id="addCategory"
+                        >
+                          <option value="Haval">Haval</option>
+                          <option value="Mazda">Mazda</option>
+                          <option value="BMW">BMW</option>
+                          <option value="Mercedes">Mercedes</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="addPrice" class="form-label">Price</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="addPrice"
+                          id="addPrice"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="addImg" class="form-label">Image URL</label>
+                        <input
+                          class="form-control"
+                          type="text"
+                          name="addImg"
+                          id="addImg"
+                        />
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        data-bs-dismiss="modal"
+                        onclick="createProduct()"
+                      >
+                        Create Product
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    <!-- category -->
+    <div class="container d-flex justify-content-center mb-3 mt-5 pt-2">
+      <div class="d-flex w-25 ms-1">
         <label for="" class="form-label">Sort by category</label>
         <select
           class="form-select"
@@ -29,9 +103,9 @@
           onchange="sortCategory()"
         >
           <option value="Samsung">Samsung</option>
-          <option value="iphone">Iphone</option>
+          <option value="Iphone">Iphone</option>
           <option value="Nokia">Nokia</option>
-          <option value="huawei">Huawei</option>
+          <option value="Huawei">Huawei</option>
         </select>
       </div>
       <div class="d-flex w-25 ms-3">
@@ -55,38 +129,23 @@
       </div>
     </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end of modal body -->
-
-
 <div class="container">
 <div class="row">
-
-
 <div v-for="product of products" :key="product.name" class="card" style="width: 25rem;">
   <img :src="product.img" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
-    <p class="card-text">{{product.price}}</p>
+    <p class="card-text">R{{product.price}}</p>
     <p class="card-text">{{product.category}}</p>
-    <a href="#" class="btn btn-primary">Add to cart</a>
+    <router-link to="/cart" class="login btn btn-primary text-white">Add to cart</router-link>
   </div>
 </div>
-
 </div>
 </div>
-
-
-
 </div>
-
-
+<div>
+</div>
+</section>
 </template>
 
 <script>
@@ -94,6 +153,7 @@ export default {
   data() {
     return {
       products: null,
+      isLoggedIn: true
     };
   },
   // fetching product
@@ -113,7 +173,7 @@ export default {
             await fetch(
               "https://pos-fj.herokuapp.com/products" + product.name,
               {
-                method: "GET",
+                method: "POST",
                 headers: {
                   "Content-type": "application/json; charset=UTF-8",
                   Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -122,7 +182,7 @@ export default {
             )
               .then((response) => response.json())
               .then((json) => {
-                product.author = json.name;
+                product.name = json.name;
               });
           });
         })
@@ -135,8 +195,23 @@ export default {
     }
     
   },
-};
+}
 </script>
 
 <style scoped>
+img{
+  object-fit: contain !important;
+  width: 400px;
+  height: 400px;
+}
+section{
+  background-color: white;
+  height: 100%;
+}
 </style>
+
+
+
+
+
+

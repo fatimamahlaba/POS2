@@ -14,16 +14,8 @@
       placeholder="Password"
     />
     <button type="submit" class="form-btn border">Login</button>
-    <div class="form-social-login">
-      <button class="form-btn border form-social-btn">
-        <i class="fab fa-google"></i>
-      </button>
-      <button class="form-btn border form-social-btn">
-        <i class="fab fa-facebook"></i>
-      </button>
-    </div>
     <div>
-      <p>Don't have a account? <router-link to="/login" class="signup">Signup</router-link></p>
+      <p>Don't have a account? <router-link to="/signup" class="signup">Signup</router-link></p>
     </div>
   </form>
 </template>
@@ -66,7 +58,9 @@ export default {
 border: none !important;
 }
 
-
+input{
+    background-color: #e8f0fe;
+}
 .form {
   display: flex;
   flex-direction: column;
