@@ -8,16 +8,13 @@
     <ul class="navbar-nav mr-auto ">
       <li class="nav-item">
         <router-link to="/" class="nav-item"></router-link>
-      </li> 
-      <div v-if="!isLoggedIn">
+      </li>
         <li class="nav-item">
           <router-link to="/signup" class="nav-item">Signup</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/login" class="nav-item">Login</router-link>
         </li>
-      </div>
-      <div v-if="isLoggedIn">
         <li class="nav-item">
           <router-link to="/updateprofile" class="nav-item">Profile</router-link>
         </li>
@@ -27,7 +24,9 @@
         <li class="nav-item">
         <router-link to="/cart" class="nav-item">Cart</router-link>
       </li>
-      </div>
+      <li class="nav-item">
+        <router-link to="/" class="nav-item">Log out</router-link>
+      </li>
 
       </ul>
         </div>
@@ -64,5 +63,11 @@ props: ['isLoggedIn']
   padding-left: 50px;
   justify-content: center;
   display: inline-block;
+}
+.active:hover,a.router-link-active{
+  border-bottom: 2px solid rgb(55, 55, 241);
+  padding: 0px ;
+  text-decoration: none;
+  box-shadow: none;
 }
 </style>

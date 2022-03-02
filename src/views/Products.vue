@@ -2,96 +2,8 @@
 <section>
 <div class="products" >
   <div style="text-align:center">
-
-  <h1 style="text-align:center">Products</h1>
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add a product
-</button>
-  </div>
-<!-- Modal -->
-              <div
-                class="modal fade"
-                id="addProductModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Add product
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="mb-3">
-                        <label for="addTitle" class="form-label">Title</label>
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="addTitle"
-                          id="addTitle"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="" class="form-label">Category</label>
-                        <select
-                          class="form-select"
-                          name="addCategory"
-                          id="addCategory"
-                        >
-                          <option value="Haval">Haval</option>
-                          <option value="Mazda">Mazda</option>
-                          <option value="BMW">BMW</option>
-                          <option value="Mercedes">Mercedes</option>
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="addPrice" class="form-label">Price</label>
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="addPrice"
-                          id="addPrice"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="addImg" class="form-label">Image URL</label>
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="addImg"
-                          id="addImg"
-                        />
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary"
-                        data-bs-dismiss="modal"
-                        onclick="createProduct()"
-                      >
-                        Create Product
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<h1 style="text-align:center">Products</h1>
+</div>
     <!-- category -->
     <div class="container d-flex justify-content-center mb-3 mt-5 pt-2">
       <div class="d-flex w-25 ms-1">
@@ -121,13 +33,97 @@
           class="form-select"
           name=""
           id="sortPrice"
-          onchange="sortPrice()"
+          :onchange="sortPrice()"
         >
           <option value="ascending">Ascending</option>
           <option value="descending">Descending</option>
         </select>
       </div>
+        Button trigger modal 
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+  Add a product
+</button>
+    </div>  
+<div
+    class="modal fade"
+    id="addProductModal"
+    tabindex="-1"
+    aria-labelledby="#addProductModal"
+    aria-hidden="true"
+   >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="#addProductModal">Add product</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="addTitle" class="form-label">Title</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="addTitle"
+                  id="addTitle"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Category</label>
+                <select class="form-select" name="addCategory" id="addCategory">
+                  <option value="Samsung">Samsung</option>
+                   <option value="Iphone">Iphone</option>
+                    <option value="Nokia">Nokia</option>
+                    <option value="Huawei">Huawei</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="addPrice" class="form-label">Price</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="addPrice"
+                  id="addPrice"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="addImg" class="form-label">Image URL</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="addImg"
+                  id="addImg"
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                onclick="createProduct()"
+              >
+                Create Product
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 <div class="container">
 <div class="row">
@@ -201,12 +197,15 @@ export default {
 <style scoped>
 img{
   object-fit: contain !important;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 section{
   background-color: white;
   height: 100%;
+}
+.row{
+gap: 10px;
 }
 </style>
 

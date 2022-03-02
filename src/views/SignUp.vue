@@ -8,28 +8,32 @@
       type="text"
       v-model="name"
       placeholder="Name"
+      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="email"
       v-model="email"
       placeholder="Email"
+      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="text"
       v-model="contact"
       placeholder="Contact Number"
+      autocomplete="off"
     />
     <input
       class="form-input border-input"
       type="password"
       v-model="password"
       placeholder="Password"
+      autocomplete="off"
     />
     <button type="submit" class="form-btn border">Sign up</button>
     <div>
-      <p>Already have a account? <router-link to="/login" class="login">Login</router-link></p>
+      <p>Already have an account? <router-link to="/login" class="login">Login</router-link></p>
     </div>
   </form>
   </section>
@@ -78,7 +82,7 @@ export default {
 <style scoped>
 section{
   background-color: white;
-  height: 100%;
+  height: 100;
 }
 
 .border {

@@ -5,7 +5,7 @@
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text">{{product.price}}</p>
     <p class="card-text">{{product.category}}</p>
-   <router-link to="/cart" class="login btn btn-primary">Check out </router-link>
+   <router-link to="/cart" class="login btn btn-primary">Check out</router-link>
   </div>
 </div>
 </template>
@@ -47,8 +47,15 @@ created() {
               });
           });
         })
-  }
-}
+        .catch((err) => {
+          alert("Log in failed");
+        });
+    } else {
+      alert("Not logged in");
+      this.$router.push({ name: "Login" });
+    }
+    
+  },
 }
 </script>
 

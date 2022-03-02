@@ -15,7 +15,7 @@
     />
     <button type="submit" class="form-btn border">Login</button>
     <div>
-      <p>Don't have a account? <router-link to="/signup" class="signup">Signup</router-link></p>
+      <p>Don't have an account? <router-link to="/signup" class="signup">Signup</router-link></p>
     </div>
   </form>
 </template>
